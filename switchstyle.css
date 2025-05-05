@@ -1,0 +1,247 @@
+/* html body styling */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-size: 22px; /* Base text size */
+}
+
+/* contianer for 2016 map*/
+.page-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 0;
+  pointer-events: none; /* shoould allow clicks */
+}
+
+/* allows pointer event in the one grey/one third box*/
+.page-container .one-third-box {
+  pointer-events: auto;
+}
+
+/* removes interactivity from header*/
+header {
+  pointer-events: none; 
+}
+
+header h1 {
+  margin: 20px;
+  position: relative;
+  z-index: 10; /* Keep header title on top */
+}
+
+#bibsize {
+  font-size: 1px;
+}
+
+.BACK-button {
+  position: absolute;
+  top: 140px;
+  left: 20px;
+  background-color: white;
+  color: black;
+  padding: 8px 16px;
+  font-size: 12px;
+  border: 1px solid black;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 15;
+  transition: background-color 0.3s ease;
+  pointer-events: auto;
+}
+
+.BACK-button:hover {
+  background-color: #f0f0f0;
+}
+
+
+/* stles the grey box */
+.one-third-box {
+  width: 30%;
+  height: 70%;
+  margin: 20px;
+  background-color: #cccccc;
+  padding: 15px;
+  border-radius: 3px;
+  overflow: auto;
+  z-index: 10;
+}
+
+/* margin added around icons*/
+.navbar {
+  margin-bottom: 10px;
+}
+
+.navbar ul {
+  list-style: none;
+  gap: 50px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row; /* Arrange icons horizontal */
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.navbar li {
+  margin-right: 20px;
+  cursor: pointer; /* diplays the pointer on hover */
+}
+
+.navbar a {
+  text-decoration: none; /* to get rid of underline for links */
+}
+
+/* should stop the icons calling heat-bounce */
+.hovercolor span {
+  transition: transform 0.3s ease; /* Smooth transformations */
+  display: inline-block;
+}
+
+/* glow white with dropshadow when you hover on the icons */
+.hovercolor span:hover {
+  color: white;
+  filter: drop-shadow(0px 4px 5px grey);
+}
+
+/* heat node styling */
+.heat {
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  z-index: 1;
+  background: none;
+  transition: filter 0.2s ease-in-out, transform 0.2s ease-in-out; /* Smooth filter and scaling */
+  pointer-events: auto;
+}
+
+/* heat nodes bounce and drop shadow on hover */
+.heat:hover {
+  filter: drop-shadow(6px 8px 10px grey);
+  animation: heat-bounce 0.4s ease-in-out infinite alternate; /* Bouncing animation while hovered */
+}
+
+/* heat bounce animation keyrframe*/
+@keyframes heat-bounce {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
+
+/* sytles the icons */
+.material-icons {
+  display: inline-block;
+  font-size: 40px !important;
+  color: #000000;
+}
+
+/* Smaller size text */
+#diff_size {
+  font-size: 80%;
+}
+
+/* text styling */
+#tab-content {
+  flex: 1;
+}
+
+/* Styling for textareas inside tab content */
+#tab-content textarea {
+  width: 100%;
+  height: 100%;
+  resize: none; /* Disable resizing */
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  overflow-y: scroll;
+}
+
+/*image contianer set up  */
+.image-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -5; /* puts the background behind everything */
+}
+
+/* image covers viewport - i hope lol */
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* map contiainer styling */
+#map {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+}
+
+/* box styling */
+#info-box {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9); /* Light white background */
+  border: 1px solid #cccccc;
+  padding: 10px;
+  display: none; /* should hide them dy default*/
+  z-index: 10;
+}
+
+/* switch button position */
+.switch {
+  position: fixed;
+  top: 20px;
+  right: 25px;
+  z-index: 5;
+}
+
+/* year lable  styling */
+.year-text {
+  position: fixed;
+  top: 10px;
+  right: 60px;
+  z-index: 6;
+  margin: 0;
+  font-size: 35px;
+  color: #78A75A; /* green */
+}
+
+/* data text styling*/
+.data-text {
+  font-size: 15px;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.data-text2 {
+  font-size: 20px;
+  color: black;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.data-heading {
+  font-size: 24px;
+  color: black;
+  margin-bottom: 10px;
+}
+
+/* bold text styling */
+strong {
+  font-weight: bold;
+}

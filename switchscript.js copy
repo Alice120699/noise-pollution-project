@@ -1,0 +1,220 @@
+// Global flag for sound (enabled by default)
+let soundAllowed = true;
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Ensure the info box element exists.
+  let infoBox = document.getElementById("info-box");
+  if (!infoBox) {
+    infoBox = document.createElement("div");
+    infoBox.id = "info-box";
+    document.body.appendChild(infoBox);
+  }
+  
+  // Create heat map pins and update their positions.
+  createHeatMapPins();
+  updateHeatMapPositions();
+  
+  // Update positions on window resize.
+  window.addEventListener("resize", updateHeatMapPositions);
+});
+
+// Original dimensions of the background image.
+const originalWidth = 1920;
+const originalHeight = 1080;
+
+// Helper function to map lden value to the corresponding audio element ID.
+function getSoundIdForLden(lden) {
+  switch (lden) {
+    case "65-69":
+      return "sound65";
+    case "60-64":
+      return "sound60";
+    case "55-59":
+      return "sound55";
+    case "50-54":
+      return "sound50";
+    case "45-49":
+      return "sound45";
+    default:
+      return null;
+  }
+}
+
+// Heat data (with country names, capitals, lden, inhabitants, coordinates, and node sizes).
+// (Sizes are already set based on your mapping.)
+const heatData = [
+  { country: "Austria", capital: "Vienna", lden: "55-59", inhabitants: "1,862,251", x: 1160, y: 720, size: 40 },
+  { country: "Belgium", capital: "Brussels", lden: "45-49", inhabitants: "1,222,637", x: 980, y: 630, size: 10 },
+  { country: "Bulgaria", capital: "Sofia", lden: "55-59", inhabitants: "1,280,034", x: 1400, y: 827, size: 40 },
+  { country: "Croatia", capital: "Zagreb", lden: "55-59", inhabitants: "767,131", x: 1180, y: 800, size: 40 },
+  { country: "Czech Republic", capital: "Prague", lden: "55-59", inhabitants: "1,442,378", x: 1170, y: 650, size: 40 },
+  { country: "Denmark", capital: "Copenhagen", lden: "55-59", inhabitants: "1,254,256", x: 1084, y: 500, size: 40 },
+  { country: "Estonia", capital: "Tallinn", lden: "45-49", inhabitants: "444,970", x: 1300, y: 380, size: 10 },
+  { country: "Finland", capital: "Helsinki", lden: "55-59", inhabitants: "653,835", x: 1300, y: 270, size: 40 },
+  { country: "France", capital: "Paris", lden: "60-64", inhabitants: "7,068,800", x: 940, y: 750, size: 55 },
+  { country: "Germany", capital: "Berlin", lden: "65-69", inhabitants: "3,606,316", x: 1100, y: 600, size: 65 },
+  { country: "Hungary", capital: "Budapest", lden: "55-59", inhabitants: "2,158,871", x: 1250, y: 730, size: 40 },
+  { country: "Iceland", capital: "Reykjavik", lden: "55-59", inhabitants: "135,688", x: 727, y: 170, size: 40 },
+  { country: "Ireland", capital: "Dublin", lden: "55-59", inhabitants: "156,6538", x: 780, y: 530, size: 40 },
+  { country: "Italy", capital: "Rome", lden: "45-49", inhabitants: "2,783,809", x: 1140, y: 860, size: 10 },
+  { country: "Latvia", capital: "Riga", lden: "50-54", inhabitants: "614,618", x: 1310, y: 425, size: 20 },
+  { country: "Lithuania", capital: "Vilnius", lden: "55-59", inhabitants: "578,801", x: 1300, y: 480, size: 40 },
+  { country: "Luxembourg", capital: "Luxembourg", lden: "55-59", inhabitants: "200,667", x: 1010, y: 660, size: 40 },
+  { country: "Malta", capital: "Valletta", lden: "60-64", inhabitants: "339,361", x: 1180, y: 1050, size: 55 },
+  { country: "Netherlands", capital: "Amsterdam", lden: "55-59", inhabitants: "2,636,524", x: 1000, y: 580, size: 40 },
+  { country: "Norway", capital: "Olso", lden: "55-59", inhabitants: "1,120,927", x: 1054, y: 355, size: 40 },
+  { country: "Poland", capital: "Warsaw", lden: "55-59", inhabitants: "1,663,587", x: 1230, y: 580, size: 40 },
+  { country: "Portugal", capital: "Porto", lden: "45-49", inhabitants: "237,591", x: 680, y: 900, size: 10 },
+  { country: "Romania", capital: "Bucharest", lden: "55-59", inhabitants: "2,106,144", x: 1358, y: 735, size: 40 },
+  { country: "Slovakia", capital: "Bratislava", lden: "55-59", inhabitants: "459,787", x: 1250, y: 677, size: 40 },
+  { country: "Slovenia", capital: "Maribor", lden: "55-59", inhabitants: "106,400", x: 1160, y: 760, size: 40 },
+  { country: "Spain", capital: "Madrid", lden: "60-64", inhabitants: "3,334,730", x: 780, y: 900, size: 55 },
+  { country: "Sweden", capital: "Stockholm", lden: "55-59", inhabitants: "974,073", x: 1154, y: 365, size: 40 },
+  { country: "Switzerland", capital: "Bern", lden: "55-59", inhabitants: "421,240", x: 1050, y: 730, size: 40 },
+];
+
+const mapContainer = document.getElementById("map");
+let heatDivs = [];
+
+// Create heat map pins.
+function createHeatMapPins() {
+  mapContainer.innerHTML = "";
+  heatDivs = [];
+  heatData.forEach((point) => {
+    const heatDiv = document.createElement("div");
+    heatDiv.classList.add("heat");
+    // Save original coordinates and size.
+    heatDiv.dataset.origX = point.x;
+    heatDiv.dataset.origY = point.y;
+    heatDiv.dataset.size = point.size;
+    heatDiv.style.width = point.size + "px";
+    heatDiv.style.height = point.size + "px";
+    // (Optional) Remove default tooltip.
+    // heatDiv.title = point.country;
+    
+    // Attach events for info box and audio.
+    heatDiv.addEventListener("mouseover", (e) => {
+      const audioId = getSoundIdForLden(point.lden);
+      if (soundAllowed && audioId) {
+        PlaySound(audioId);
+      }
+      showInfoBox(point, e.pageX, e.pageY);
+    });
+    
+    heatDiv.addEventListener("mousemove", (e) => {
+      const offsetX = 10, offsetY = 10;
+      const infoBox = document.getElementById("info-box");
+      infoBox.style.left = (e.pageX + offsetX) + "px";
+      infoBox.style.top = (e.pageY - infoBox.offsetHeight - offsetY) + "px";
+    });
+    
+    heatDiv.addEventListener("mouseout", () => {
+      const audioId = getSoundIdForLden(point.lden);
+      if (soundAllowed && audioId) {
+        StopSound(audioId);
+      }
+      hideInfoBox();
+    });
+    
+    // Also show info box on click.
+    heatDiv.addEventListener("click", (e) => {
+      showInfoBox(point, e.pageX, e.pageY);
+    });
+    
+    mapContainer.appendChild(heatDiv);
+    heatDivs.push(heatDiv);
+  });
+}
+
+// Update heat map pin positions based on scaling and cropping.
+function updateHeatMapPositions() {
+  const containerWidth = mapContainer.clientWidth;
+  const containerHeight = mapContainer.clientHeight;
+  const scale = Math.max(containerWidth / originalWidth, containerHeight / originalHeight);
+  const displayedWidth = originalWidth * scale;
+  const displayedHeight = originalHeight * scale;
+  const offsetX = (displayedWidth - containerWidth) / 2;
+  const offsetY = (displayedHeight - containerHeight) / 2;
+  heatDivs.forEach((div) => {
+    const origX = parseFloat(div.dataset.origX);
+    const origY = parseFloat(div.dataset.origY);
+    const size = parseFloat(div.dataset.size) || 0;
+    const newX = (origX * scale) - offsetX;
+    const newY = (origY * scale) - offsetY;
+    // Center the node.
+    div.style.left = (newX - size / 2) + "px";
+    div.style.top = (newY - size / 2) + "px";
+  });
+}
+
+// Helper: Map lden values to audio element IDs.
+function getSoundIdForLden(lden) {
+  switch (lden) {
+    case "65-69":
+      return "sound65";
+    case "60-64":
+      return "sound60";
+    case "55-59":
+      return "sound55";
+    case "50-54":
+      return "sound50";
+    case "45-49":
+      return "sound45";
+    default:
+      return null;
+  }
+}
+
+// Sound functions.
+function PlaySound(soundId) {
+  if (!soundAllowed) return;
+  const audio = document.getElementById(soundId);
+  if (audio) {
+    audio.play();
+  }
+}
+function StopSound(soundId) {
+  if (!soundAllowed) return;
+  const audio = document.getElementById(soundId);
+  if (audio) {
+    audio.pause();
+    audio.currentTime = 0;
+  }
+}
+
+// Info box functions.
+function showInfoBox(point, posX, posY) {
+  const infoBox = document.getElementById("info-box");
+  infoBox.innerHTML = `<strong>${point.country}</strong><br>
+                       Capital: ${point.capital || "N/A"}<br>
+                       Lden: ${point.lden || "N/A"}<br>
+                       Inhabitants: ${point.inhabitants || "N/A"}`;
+  infoBox.style.display = "block";
+  const offsetX = 10, offsetY = 10;
+  infoBox.style.left = (posX + offsetX) + "px";
+  infoBox.style.top = (posY - infoBox.offsetHeight - offsetY) + "px";
+}
+function hideInfoBox() {
+  const infoBox = document.getElementById("info-box");
+  infoBox.style.display = "none";
+}
+
+// ----- NEW CODE: Tab Content Handling -----
+const tabContent = {
+  inspo: '<h2 class="data-heading">2016 (Pre Covid) <br> Noise Pollution Across Major European Cities</h2><p class="data-text2">What is LDen?</p> <p class="data-text">Lden is a noise metric which stands for “day-evening-night level” – it’s used to show the weighted overall environmental noise exposure over a 24 hour period.</p><p class="data-text"> <br> <strong>Lden is measured in decibels (dB):</strong> </p> <img src="https://cdn.glitch.global/8f98181d-cb9a-4987-8ef2-b9167a0ad0f4/Untitled-3.png?v=1744058393536" alt="Lden Explanation Image" style="max-width:82%; height:auto;">',
+  about: '<h2 class="data-heading">About</h2> <p class="data-text2">Our Data Source:</p> <p class="data-text">We sourced our data from the European Environmental Agency (The EEA). They monitor different impacts on the environment across Europe using standardised methods. This provided us a source of reliable and comparable data to see the difference in Lden  levels before and during covid. We specifically chose to represent Lden levels produced from road traffic, to highlight the changes in noise produced from traffic activity across European capitals <p class="data-text2">The impact of Noise on Health:</p> <p class="data-text">Noise is an environmental pollutant that has been proven to have an impact on our health. Continued exposure to high levels of sound has been linked to type 2 diabetes, dementia and heart attacks. Often, it goes unnoticed, but we emotionally respond to sound. Loud, intense sounds trigger stress hormones which activate our nervous sympathetic system, increasing inflammation in the body. </p><p class="data-text2">How Lden is Measured:</p> <p class="data-text"> Day-Evening-Night Level is measured as a continuous sound over a 24hr period. Additional penalties (in dB)  are added in the evening and night to show our increased sensitivity to sound. The EEA uses a standardised method for recording the data, which member states use to record and share their data. </p>',
+  howto: '<h2 class="data-heading">Help!</h2><p class="data-text2">How to use our site:</p><ul class="data-text"><li>Hover over the heat map nodes to hear levels of sound and see relevant data.</li><br><li>Press the switch in the top right of the screen to compare before and during Covid.</li><br><li>For the best experience, use Chrome with your screen fully expanded.</li></ul>',
+  data: '<h2 class="data-heading">Data Overview</h2><p class="data-text">The data plotted on the map is from the European Environmental Agency showing 2016 Lden levels across capital cities in Europe:</p><img src="https://cdn.glitch.global/8f98181d-cb9a-4987-8ef2-b9167a0ad0f4/Screenshot%202025-04-07%20at%2018.09.29.png?v=1744045844609" alt="Table Image" style="max-width:100%; height:auto;">'
+};
+
+document.querySelectorAll('.navbar li').forEach(item => {
+  item.addEventListener('click', function(e) {
+    e.preventDefault();
+    const tab = this.getAttribute('data-tab');
+    const content = tabContent[tab] || "No content available for this tab.";
+    document.querySelector('#tab-content').innerHTML = content;
+  });
+});
+
+// Set the default tab content.
+document.getElementById('tab-content').innerHTML = tabContent.inspo;

@@ -1,0 +1,263 @@
+/* html body styling */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 30px;
+  overflow: auto;
+  font-family: Arial, sans-serif;
+  text-align: center;  
+  background-image: url('https://cdn.glitch.global/45857a5d-77bd-44ca-9b1e-6d82892edf84/Untitled-2.png?v=1743862978273');
+  background-size: cover;        /* Make the image cover the entire page*/
+  background-repeat: no-repeat;  /* Do not repeat */
+  background-position: center;   /* Center the display */
+  background-attachment: fixed;  /* Keep the background fixed when scrolling the page */
+  }
+#loader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  overflow: visible;
+  backdrop-filter: blur(90px);
+  background: url("https://cdn.glitch.global/857b9e71-e82c-42f9-b4c7-20e5a1e1aa85/giphy.gif?v=1742920939734")
+    no-repeat center center;
+}
+
+#content {
+  position: relative;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 4;
+  min-height: 100vh;
+}
+
+/* removes link underline */
+#content a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 14px;
+}
+
+/* changes link colour on hover */
+#content a:hover {
+  color: #BB261A; /* consistent red colour throughout */
+}
+
+  h2 {
+      color: #222;
+    }
+
+h3 {
+  text-decoration: none;
+  color: #615c5c; /* Change to your preferred base color */
+  font-size: 20px; /* Adjust font size as needed */
+}
+
+  .text-with-border {
+    border: 2px solid grey; 
+    background:LightGray;
+    padding: 30px; 
+    display: inline-block; 
+    font-family: "Times New Roman", Times, serif;
+  }
+
+/*make sure font size same with link*/ 
+ul li{
+  font-size:14px;
+  
+}
+/*button design */ 
+  .map-button {
+    background-color: 0;
+    color: black;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .map-button:hover {
+    background-color: #d14e43;
+    color: white;
+  }
+
+.image-container {
+   display: flex;
+   justify-content: space-between; 
+}
+.image-container img {
+  width: 60PX; 
+  height: auto; 
+}
+
+
+
+/* Chart and information area */
+.grid-container {
+    font-size:12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 15px;
+    height: 100%;
+}
+
+.chart-container {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    border: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 560px;
+}
+
+.chart-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid #e0e0e0;
+    font-weight: 50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #000000;
+    flex-shrink: 0;
+}
+
+.chart-body {
+    flex: 1;
+    flex-grow: 1;
+    width:100%;
+    height: 400px;
+    padding:10px;
+    position: relative;
+    
+}
+
+.chart-body canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* information area*/
+.info-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-wide {
+  grid-column: 1 / span 2; /*Cross two columns*/
+}
+
+.info-title {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: #000000;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.info-content {
+    flex: 1;
+    line-height: 1.6;
+    color: #000000;
+}
+
+.info-image {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 15px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+
+/* Chart navigation buttons */
+.chart-nav {
+    display: flex;
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #e0e0e0;
+    overflow-x: auto;
+    flex-wrap: wrap;
+    gap: 8px;
+    flex-shrink: 0;
+    justify-content: center;
+    z-index: 5;
+}
+
+.chart-nav-btn {
+    padding: 6px 12px;
+    background-color: #ffffff;
+    border: 1px solid #d0d0d0;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 14px;
+    font-weight: 500;
+    color: #000000;
+    white-space: nowrap;
+    min-width: 80px;
+    text-align: center;
+}
+
+.chart-nav-btn:hover {
+    background-color: #f0f0f0;
+    border-color: #b0b0b0;
+    color: #000000;
+    font-weight: 600;
+}
+
+.chart-nav-btn.active {
+    background: linear-gradient(135deg, #606060 0%, #404040 100%);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+} 
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100px;
+    }
+    .option {
+        padding: 10px 5px;
+    }
+    .content {
+        padding: 15px;
+    }
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+  .chart-body {
+    min-height: 300px; 
+  }
+    .chart-container {
+        grid-column: 1;
+        grid-row: 1;
+        margin-bottom: 20px;
+        height: 450px;
+    }
+}
+
+h1{
+  font-size: 60px;
+}
+

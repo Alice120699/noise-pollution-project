@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Welcome</title>
+    <link rel="stylesheet" href="/style.css" />
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+    <!-- icons google link -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+      body { font-family: 'Space Mono'; font-size: 22px; }
+    </style>
+    <script src="/script.js" defer></script>
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+  </head>
+  
+  <body>
+    
+    <!-- Loading animation -->
+    <div id="loader"></div>
+    
+    <!-- Main content container (initially hidden via opacity) -->
+    <div id="content">
+
+      <!-- Your code has to be between <div id="content"> and </div> 
+      otheriwse it won't fade in -->
+      <!-- insert your homepage code in here: --> 
+      <h1>Covid's Noise Fallout In Europe</h1>
+      <div>
+        <a href="actualindex.html">
+          <button id="mapButton" class="map-button"> 🌍 CLICK HERE TO ENTER 🌍</button>
+        </a>
+      </div>
+      <br/>
+      <h2>
+         About Our Data: 
+      </h2>
+
+      
+              <!--  Main-Container -->
+    <div class="main-content">
+      <div class="grid-container">
+        
+                <!-- Bar Chart -->
+          <div class="chart-container">
+            <div class="chart-header">
+              <span>Statistics of the number of people in the European Economic Area affected by environmental noise (except Turkey) in terms of health in 2017</span>
+              <span>Data source: European Environment Agency (EEA), 2020. </span>
+      </div>
+      <div class="chart-nav">
+        <button class="chart-nav-btn active" data-type="highAnnoyance">High annoyance</button>
+        <button class="chart-nav-btn" data-type="sleepDisturbance">High sleep disturbance</button>
+        <button class="chart-nav-btn" data-type="heartDisease">Ischaemic heart disease</button>
+        <button class="chart-nav-btn" data-type="mortality">Premature Mortality(a)</button>
+        <button class="chart-nav-btn" data-type="reading">Reading impairment in children</button>
+       </div>
+       <div class="chart-body">
+        <div class="chart-title"></div>
+        <div class="chart-subtitle" id="chartSubtitle">High annoyance</div>
+        <canvas id="barChart"></canvas>
+       </div>
+      </div>
+                
+                <!-- Right Top Info-->
+      <div class="info-container" style="text-align: center;">
+        <div class="info-title">Purpose and Main Functions of the Website</div>
+         <div class="info-content" style="text-align: center;">
+         <p>This project aims to reveal the significance of noise pollution and its associated health risks through data visualization, while highlighting issues of data inequality across social classes. It focuses on covering all populations, especially vulnerable groups such as the elderly and children, using publicly available data from the European Environment Agency (EEA) and the World Health Organization (WHO) to create a platform for public education and advocacy.</p>
+         <p>To address gaps in traditional data collection, the website integrates official datasets with citizen-reported noise data (European Environment Agency, 2021), encouraging public participation to enhance data completeness.</p>
+           <h3>Core Features</h3>
+           <ul style="margin-left: 0px; margin-top: 15px; list-style: none;">
+           <li><strong><a href="actualindex.html">Noise Hotspot Map:</a></strong> Interactive map allowing users to view noise data across different regions.</li>
+          <li><strong>Health Impact Information Section:</strong> Science communication based on WHO research on noise and health.</li>
+           <li><strong>Data Visualization Charts:</strong> Visual trends and distribution of noise pollution and health impacts.</li>
+          </ul>
+           <p>We emphasize cross-class data inclusivity and rely on authoritative sources (EEA and WHO) to ensure data accuracy and transparency.</p>
+          </div>
+     </div>
+                
+     <!-- Middlle Info -->
+      <div class="info-container info-wide">
+         <div class="info-title">Protective measures</div>
+           <div class="info-content">
+             <h2>Understanding the Importance of Studying Noise Pollution Before and After Lockdowns</h2>
+<p>To better understand the societal impacts of noise pollution, this study focuses on comparing the situation before and after COVID-19 lockdowns across Europe. The significant reduction in traffic during lockdowns provided a unique natural experiment, enabling researchers to observe the effect of reduced human activities on the noise environment. It also allows analysis of different countries' noise management under varying social conditions.</p>
+<p>According to EEA standards, noise levels in low-density residential areas must not exceed specific thresholds, but several reports indicate that before the lockdowns, multiple European countries were already violating these limits. By analyzing these changes, the project aims to reveal whether improvements occurred during the pandemic and advocate for stronger noise governance policies.</p>
+<h2>What is Noise Pollution?</h2>
+<p>Noise pollution is a major but often overlooked environmental issue in modern cities. According to the WHO, noise is defined as any unwanted or disruptive sound, commonly originating from traffic, construction, and crowd activities. Although invisible, its impact on health is profound and undeniable.</p>
+<p>According to the latest data published by the European Environment Agency (2024), the number of people affected by noise pollution in Europe has slightly decreased in recent years but remains extremely high overall. In 2017, approximately 125 million people were exposed to environmental noise (Lden ≥ 55 dB), and by 2022, the figure still stood at around 113 million (European Environment Agency, 2024).</p>
+<p>Road traffic noise is the most dominant source, accounting for over 75% of total exposure.</p>
+             
+<p>According to WHO research, prolonged exposure to high noise levels can lead to:</p>
+<ul>
+  <li><strong>Sleep Disorders:</strong> Affecting sleep quality and increasing the risk of chronic diseases.</li>
+  <li><strong>Cardiovascular Diseases:</strong> Long-term exposure to traffic noise increases the risk of hypertension and heart disease (<em>European Heart Journal</em>).</li>
+  <li><strong>Psychological Stress and Anxiety:</strong> Noise exposure keeps the body in a state of constant alert, raising the likelihood of anxiety and depression.</li>
+  <li><strong>Cognitive Decline:</strong> Children exposed to noisy environments show impaired academic performance and long-term developmental impacts.</li>
+</ul>
+<p>Effective noise management and personal protective strategies are crucial for improving overall quality of life.</p>
+
+<h2>Data Politics and Power: Who Records Noise? Why? Who Is Ignored?</h2>
+<p>Data collection is not a neutral act; noise data tends to be concentrated in wealthier, politically powerful areas (Couldry & Powell, 2012). Poorer and marginalized communities often lack sufficient noise pollution data, excluding them from policymaking processes. According to EEA reports (European Environment Agency, 2021), monitoring points are more densely distributed in central urban areas, while marginalized and low-income neighborhoods are often overlooked. This phenomenon of "data rich" and "data poor" communities (Couldry & Powell, 2012) reinforces social inequality.</p>
+
+<h2>Public Perception and Invisible Pollution: How to Reveal "Invisible Violence"?</h2>
+<p>Unlike visible air pollution, noise pollution represents "invisible violence" that is easily masked by daily routines. However, WHO research shows that long-term exposure to traffic, industrial, and other noise sources can cause cardiovascular diseases, sleep disorders, and cognitive decline (World Health Organization, 2018). Through visual maps and data graphics, this project seeks to make the health impacts of noise pollution tangible, raising public awareness and driving stronger policy responses (Couldry & Powell, 2012).</p>
+
+<h2>Big Data Inequality: The "Rich" and the "Poor"</h2>
+<p>Large-scale data monitoring projects often focus on resource-rich regions, while data collection in marginalized communities remains inadequate. Couldry & Powell (2012) emphasize that such "big data inequality" marginalizes the poor in environmental governance. The EEA also highlights that the elderly and children are among the most vulnerable to noise pollution, yet current data coverage for these groups remains insufficient (European Environment Agency, 2020).</p>
+
+<h2>Data Motivation, Sources, and Potential Biases</h2>
+<p>Current noise pollution data primarily comes from the European Environment Agency (EEA) and national government bodies, focusing mainly on traffic noise from roads, railways, and airways. These datasets support environmental monitoring and policy evaluation.</p>
+<p>However, there are several limitations:</p>
+<ul>
+  <li>Only traffic noise is extensively covered; localized noise sources such as markets or construction sites are largely excluded.</li>
+  <li>Data density varies, with certain regions (e.g., Eastern and Southern Europe) underrepresented.</li>
+  <li>There is no direct integration of noise data with health outcomes; most conclusions rely on inferential links.</li>
+</ul>
+<p>Thus, despite abundant research indicating the health risks of noise pollution, the actual extent of the impact may still be underestimated, calling for more precise and comprehensive data collection efforts.</p>
+  
+            <p>For different types of noise, we can adopt specific protective measures to safeguard hearing health：</p>
+             <p style="margin-top: 15px;">In high-noise environments, it is recommended to use professional noise-canceling earmuffs or earplugs. In daily life, noise pollution can be reduced by controlling volume levels or adding soundproofing materials.
+</p>
+
+      </div>
+        
+     </div>
+ </div>
+      <br><br>
+    <h5>Bibliography</h5>
+    <ul>
+    <li style="font-size: 12px;">Couldry, N., & Powell, A. (2012). Big Data from the bottom up. <em>Information, Communication & Society, 15(5)</em>, 613-632. <a href="https://doi.org/10.1080/1369118X.2012.678878"  style="font-size: 12px;">https://doi.org/10.1080/1369118X.2012.678878</a></li>
+    <li style="font-size: 12px;">ETC/ATNI Report 06/2021. Noise indicators under the Environmental Noise Directive 2021: Methodology for estimating missing data. <a href="https://www.eionet.europa.eu/etcs/etc-atni/products/etc-atni-reports/etc-atni-report-06-2021-noise-indicators-under-the-environmental-noise-directive-2021-methodology-for-estimating-missing-data"  style="font-size: 12px;">Link</a></li>
+    <li  style="font-size: 12px;">European Environment Agency. (2020). Health risks caused by environmental noise in Europe. <a href="https://www.eea.europa.eu/publications/health-risks-caused-by-environmental"  style="font-size: 12px;">https://www.eea.europa.eu/publications/health-risks-caused-by-environmental</a></li>
+    <li style="font-size: 12px;">European Environment Agency. (2020). Unequal exposure and unequal impacts: Social vulnerability to air pollution, noise and extreme temperatures in Europe. <a href="https://www.eea.europa.eu/en/analysis/publications/unequal-exposure-and-unequal-impacts"  style="font-size: 12px;">Link</a></li>
+    <li  style="font-size: 12px;">European Environment Agency. (2021). Noise indicators under the Environmental Noise Directive 2021: Methodology for estimating missing data. <a href="https://www.eionet.europa.eu/etcs/etc-atni/products/etc-atni-reports/etc-atni-report-06-2021-noise-indicators-under-the-environmental-noise-directive-2021-methodology-for-estimating-missing-data"  style="font-size: 12px;">Link</a></li>
+    <li style="font-size: 12px;">European Environment Agency. (2024). <em>Estimated number of people exposed to long-term harmful levels of road, rail and aircraft noise, EU-27</em>. Retrieved from <a href="https://www.eea.europa.eu/en/analysis/indicators/exposure-of-europe-population-to-noise/estimated-number-of-people-exposed" target="_blank"  style="font-size: 12px;">https://www.eea.europa.eu/en/analysis/indicators/exposure-of-europe-population-to-noise/estimated-number-of-people-exposed</a></li>
+    <li style="font-size: 12px;">Khomenko, S. et al. (2022). Impact of road traffic noise on annoyance and preventable mortality in European cities: A health impact assessment. <em>Environment International, 162</em>, 107160. <a href="https://doi.org/10.1016/j.envint.2022.107160"  style="font-size: 12px;">https://doi.org/10.1016/j.envint.2022.107160</a></li>
+    <li style="font-size: 12px;">Munzel, T. et al. (2014). Cardiovascular effects of environmental noise exposure. <em>European Heart Journal, 35(13)</em>, 829–836. <a href="https://doi.org/10.1093/eurheartj/ehu030"  style="font-size: 12px;">https://doi.org/10.1093/eurheartj/ehu030</a></li>
+    <li style="font-size: 12px;">Niemann, H., Maschke, C., and World Health Organization (2004). Noise effects and morbidity, Final Report. <a href="https://iris.who.int/bitstream/handle/10665/374799/WHO-EURO-2004-8723-48495-72051-eng.pdf?sequence=1&isAllowed=y"  style="font-size: 12px;">Link</a></li>
+    <li style="font-size: 12px;">Noise pollution and health (2023). <a href="https://www.eea.europa.eu/publications/zero-pollution/health/noise-pollution"  style="font-size: 12px;">https://www.eea.europa.eu/publications/zero-pollution/health/noise-pollution</a></li>
+    <li style="font-size: 12px;">World Health Organization. (2018). Environmental noise guidelines for the European Region.</li>
+   </ul>
+  </div> 
+    
+   
+<script>
+          // Define chart variables
+    let barChart;
+
+    // Environmental noise health impact data
+    const noiseHealthData = {
+      highAnnoyance: { title: '', categories: ['Road', 'Railway', 'Aircraft', 'Industry', 'Total'], series:[{name:'City',data:[12525000,1694700,848300,87200,null]},{name:'Non-City',data:[4625500,1802400,27600,'No Data',null]},{name:'Total',data:[null,null,null,null,21859100]}] },
+      sleepDisturbance: { title: '', categories: ['Road', 'Railway', 'Aircraft', 'Industry', 'Total'], series:[{name:'City',data:[3242400,795500,168500,23400,null]},{name:'Non-City',data:[795500,962900,84600,'No Data',null]},{name:'Total',data:[null,null,null,null,6478300]}] },
+      heartDisease: { title: '', categories: ['Road', 'Railway', 'Aircraft', 'Industry', 'Total'], series:[{name:'City',data:[29500,3100,700,200,null]},{name:'Non-City',data:[10900,3400,200,'No Data',null]},{name:'Total',data:[null,null,null,null,47900]}] },
+      mortality: { title: '', categories: ['Road', 'Railway', 'Aircraft', 'Industry', 'Total'], series:[{name:'City',data:[7600,800,200,50,null]},{name:'Non-City',data:[2500,900,50,'No Data',null]},{name:'Total',data:[null,null,null,null,12100]}] },
+      reading: { title: '', categories: ['Road', 'Railway', 'Aircraft', 'Industry', 'Total'], series:[{name:'City',data:['-','-',9500,'-',null]},{name:'Non-City',data:['-','-','-','-',null]},{name:'Total',data:[null,null,null,null,12300]}] }
+    };
+
+    // Format the data
+    function formatDataForChartJS(chartData) {
+      const colors = ['#E57373', '#FFD54F', '#64B5F6'];
+      return {
+        labels: chartData.categories,
+        datasets: chartData.series.map((series, i) => ({
+          label: series.name,
+          data: series.data.map(v => (v === null || v === 'No Data' || v === '-') ? 0 : v),
+          backgroundColor: series.name === 'Total' ? '#3949AB' : colors[i],
+          borderColor: series.name === 'Total' ? '#3949AB' : colors[i],
+          borderWidth: 1
+        }))
+      };
+    }
+
+    // Render the chart
+    function renderNoiseChart(dataType) {
+      const chartData = noiseHealthData[dataType];
+      const formattedData = formatDataForChartJS(chartData);
+      document.getElementById('chartSubtitle').textContent = chartData.title;
+  
+      if (barChart) barChart.destroy();
+  
+      const ctx = document.getElementById('barChart').getContext('2d');
+      barChart = new Chart(ctx, {
+      type: 'bar',
+      data: formattedData,
+      options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      animation: false,
+      plugins: {
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              const label = context.dataset.label || '';
+              let value = context.raw;
+              return label + ': ' + (value === 0 ? 'no data' : value.toLocaleString());
+            }
+          }
+        },
+        legend: {
+          position: 'top',
+          onClick: (e) => e.native.stopImmediatePropagation() // Only added this line to prevent legend click from hiding
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            callback: function(v) {
+              if (v >= 1e6) return (v / 1e6) + 'M';
+              if (v >= 1e3) return (v / 1e3) + 'K';
+              return v;
+            }
+          }
+        }
+      }
+    }
+  });
+}
+
+        
+    document.querySelectorAll('.chart-nav-btn').forEach(btn => {
+     btn.addEventListener('click', function() {
+     const type = this.dataset.type;
+     if (type === "highAnnoyance" || type === "sleepDisturbance" || type === "heartDisease" || type === "mortality" || type === "reading") {
+      document.querySelectorAll('.chart-nav-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      renderNoiseChart(type);
+     } else {
+      
+     }
+   });
+  });
+
+
+   window.addEventListener('load', function() {
+    document.body.classList.add('loaded');
+    renderNoiseChart('highAnnoyance');  
+  });
+  </script>
+
+  </body>
+</html>

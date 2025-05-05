@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Before Covid</title>
+    <link rel="stylesheet" href="/actualstyle.css" />
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+      body { font-family: 'Space Mono'; font-size: 22px; }
+    </style>
+    <script src="/actualscript.js" defer></script>
+  </head>
+   <body>
+    <!-- AUDIOS FOR DIFFERENT LDEN-->
+    <audio id="sound65" src="https://cdn.glitch.global/ba49ec6b-b320-4abb-9df3-fb60ec67b846/High.m4a?v=1746361940586"></audio>
+    <audio id="sound60" src="https://cdn.glitch.global/ba49ec6b-b320-4abb-9df3-fb60ec67b846/Traffic%20-%20mid-high.m4a?v=1746361891291"></audio>
+    <audio id="sound55" src="https://cdn.glitch.global/ba49ec6b-b320-4abb-9df3-fb60ec67b846/Mid.m4a?v=1746361842944"></audio>
+    <audio id="sound50" src="https://cdn.glitch.global/ba49ec6b-b320-4abb-9df3-fb60ec67b846/Mid%20-%20low.m4a?v=1746361775168"></audio>
+    <audio id="sound45" src="https://cdn.glitch.global/ba49ec6b-b320-4abb-9df3-fb60ec67b846/Low.m4a?v=1746361637530"></audio>
+    
+
+    <!-- NODES ON MAP -->
+    <div id="map"></div>
+
+    <!-- INFO BOX ON LEFT -->
+    <div id="info-box"></div>
+
+    <!-- MAP BACKGROUND IMAGE -->
+    <div class="image-container">
+      <img id="bgImage" src="https://cdn.glitch.global/45857a5d-77bd-44ca-9b1e-6d82892edf84/Untitled-2.png?v=1743862978273" alt="Background"/>
+    </div>
+
+    <!-- Page container (header & one-third-box) placed after the map -->
+    <div class="page-container">
+    <header>
+        <h1>
+          Covid's Noise Fallout
+          <div id="diff_size">In Europe</div>
+        </h1>
+      <a href="index.html">
+      <button id="BACK" class="BACK-button">🏠 BACK</button>
+      </a>
+    </header>
+
+      <!-- Side info box -->
+      <div class="one-third-box">
+          <nav class="navbar">
+            <ul class="hovercolor">
+              <li data-tab="inspo"><a href="#inspo"><span class="material-icons">emoji_objects</span></a></li>
+              <li data-tab="about"><a href="#about"><span class="material-icons">menu_book</span></a></li>
+              <li data-tab="howto"><a href="#howto"><span class="material-icons">help</span></a></li>
+              <li data-tab="data"><a href="#data"><span class="material-icons">dataset</span></a></li>
+            </ul>
+          </nav>
+          <div id="tab-content">
+            <p>This is default text. Click on a tab to display new information.</p>
+          </div>
+        </div>      
+      </div>
+
+      <!-- Switch (navigation) -->
+      <p class="year-text">2016</p>
+      <a href="switchindex.html" class="switch">
+        <img src="https://cdn.glitch.global/857b9e71-e82c-42f9-b4c7-20e5a1e1aa85/toggle_on_200dp_BB271A_FILL0_wght400_GRAD0_opsz48.png?v=1743954492035" width="150px"/>
+      </a>
+
+  </body>
+</html>

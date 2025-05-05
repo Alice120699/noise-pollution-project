@@ -1,0 +1,254 @@
+[
+  {
+    "country": "Austria",
+    "capital": "Vienna",
+    "lden": "65-69",
+    "inhabitants": "1,862,251",
+    "x": 1160,
+    "y": 720,
+    "size": 65
+  },
+  {
+    "country": "Belgium",
+    "capital": "Brussels",
+    "lden": "65-69",
+    "inhabitants": "999,899",
+    "x": 980,
+    "y": 630,
+    "size": 65
+  },
+  {
+    "country": "Bulgaria",
+    "capital": "Sofia",
+    "lden": "60-64",
+    "inhabitants": "1,332,817",
+    "x": 1400,
+    "y": 827,
+    "size": 55
+  },
+  {
+    "country": "Croatia",
+    "capital": "Zagreb",
+    "lden": "55-59",
+    "inhabitants": "790,017",
+    "x": 1180,
+    "y": 800,
+    "size": 40
+  },
+  {
+    "country": "Czech Republic",
+    "capital": "Prague",
+    "lden": "55-59",
+    "inhabitants": "1,234,005",
+    "x": 1170,
+    "y": 650,
+    "size": 40
+  },
+  {
+    "country": "Denmark",
+    "capital": "Copenhagen",
+    "lden": "55-59",
+    "inhabitants": "1,194,507",
+    "x": 1084,
+    "y": 500,
+    "size": 40
+  },
+  {
+    "country": "Estonia",
+    "capital": "Tallinn",
+    "lden": "60-64",
+    "inhabitants": "435,972",
+    "x": 1300,
+    "y": 380,
+    "size": 55
+  },
+  {
+    "country": "Finland",
+    "capital": "Helsinki",
+    "lden": "55-59",
+    "inhabitants": "635,181",
+    "x": 1300,
+    "y": 270,
+    "size": 40
+  },
+  {
+    "country": "France",
+    "capital": "Paris",
+    "lden": "55-59",
+    "inhabitants": "7,068,800",
+    "x": 940,
+    "y": 750,
+    "size": 40
+  },
+  {
+    "country": "Germany",
+    "capital": "Berlin",
+    "lden": "55-59",
+    "inhabitants": "3,460,725",
+    "x": 1100,
+    "y": 600,
+    "size": 40
+  },
+  {
+    "country": "Hungary",
+    "capital": "Budapest",
+    "lden": "55-59",
+    "inhabitants": "2,158,871",
+    "x": 1250,
+    "y": 730,
+    "size": 40
+  },
+  {
+    "country": "Iceland",
+    "capital": "Reykjavik",
+    "lden": "55-59",
+    "inhabitants": "126,041",
+    "x": 727,
+    "y": 170,
+    "size": 40
+  },
+  {
+    "country": "Ireland",
+    "capital": "Dublin",
+    "lden": "55-59",
+    "inhabitants": "1,308,900",
+    "x": 780,
+    "y": 530,
+    "size": 40
+  },
+  {
+    "country": "Italy",
+    "capital": "Rome",
+    "lden": "60-64",
+    "inhabitants": "2,876,614",
+    "x": 1140,
+    "y": 860,
+    "size": 55
+  },
+  {
+    "country": "Latvia",
+    "capital": "Riga",
+    "lden": "60-64",
+    "inhabitants": "641,007",
+    "x": 1310,
+    "y": 425,
+    "size": 55
+  },
+  {
+    "country": "Lithuania",
+    "capital": "Vilnius",
+    "lden": "55-59",
+    "inhabitants": "574,339",
+    "x": 1300,
+    "y": 480,
+    "size": 40
+  },
+  {
+    "country": "Luxembourg",
+    "capital": "Luxembourg",
+    "lden": "55-59",
+    "inhabitants": "153,410",
+    "x": 1010,
+    "y": 660,
+    "size": 40
+  },
+  {
+    "country": "Malta",
+    "capital": "Valletta",
+    "lden": "55-59",
+    "inhabitants": "277,600",
+    "x": 1180,
+    "y": 1050,
+    "size": 40
+  },
+  {
+    "country": "Netherlands",
+    "capital": "Amsterdam",
+    "lden": "55-59",
+    "inhabitants": "1,678,380",
+    "x": 1000,
+    "y": 580,
+    "size": 40
+  },
+  {
+    "country": "Norway",
+    "capital": "Olso",
+    "lden": "55-59",
+    "inhabitants": "973,979",
+    "x": 1054,
+    "y": 355,
+    "size": 40
+  },
+  {
+    "country": "Poland",
+    "capital": "Warsaw",
+    "lden": "55-59",
+    "inhabitants": "1,753,977",
+    "x": 1230,
+    "y": 580,
+    "size": 40
+  },
+  {
+    "country": "Portugal",
+    "capital": "Porto",
+    "lden": "55-59",
+    "inhabitants": "237,591",
+    "x": 680,
+    "y": 900,
+    "size": 40
+  },
+  {
+    "country": "Romania",
+    "capital": "Bucharest",
+    "lden": "55-59",
+    "inhabitants": "2,106,144",
+    "x": 1358,
+    "y": 735,
+    "size": 40
+  },
+  {
+    "country": "Slovakia",
+    "capital": "Bratislava",
+    "lden": "55-59",
+    "inhabitants": "493,734",
+    "x": 1250,
+    "y": 677,
+    "size": 40
+  },
+  {
+    "country": "Slovenia",
+    "capital": "Maribor",
+    "lden": "60-64",
+    "inhabitants": "106,400",
+    "x": 1160,
+    "y": 760,
+    "size": 55
+  },
+  {
+    "country": "Spain",
+    "capital": "Madrid",
+    "lden": "55-59",
+    "inhabitants": "3,165,883",
+    "x": 780,
+    "y": 900,
+    "size": 40
+  },
+  {
+    "country": "Sweden",
+    "capital": "Stockholm",
+    "lden": "55-59",
+    "inhabitants": "911,989",
+    "x": 1154,
+    "y": 365,
+    "size": 40
+  },
+  {
+    "country": "Switzerland",
+    "capital": "Bern",
+    "lden": "55-59",
+    "inhabitants": "398,873",
+    "x": 1050,
+    "y": 730,
+    "size": 40
+  }
+]
